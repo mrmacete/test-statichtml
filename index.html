@@ -1,0 +1,28 @@
+<html>
+    <head><title>Serial Check</title>
+        <script type="text/javascript">
+alert('dumb');
+document.addEventListener('DOMContentLoaded', function(event) {
+    var butt = document.getElementById("validateButton");
+    butt.addEventListener('touchend', validate, false);
+});
+
+function validate() {
+    var serial = document.getElementById("serialField").value;
+    var test = Math.max(0, serial.length - 15);
+    if (!test) {
+        alert('fail');
+      //window.location = 'command://fail';
+      return;
+    }
+    alert('validate');
+    //window.location = 'command://validate/' + serial;
+}
+        </script></head>
+    <body style="background: transparent; -webkit-user-select:none; -webkit-touch-callout:none;">
+        <div id="everything" style="cursor: pointer; position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
+            <input spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" id="serialField" name="serial" type="text" style="display: block; font-size: 20pt; text-align: center" placeholder="serial"/>
+            <div id="validateButton" style="font-family: sans-serif; text-align: center; cursor: pointer; display: block; width: 100%; font-size: 22pt; color: white; background-color: #377EFF; border: none">Validate</div>
+        </div>
+    </body>
+</html>
